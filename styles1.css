@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lucida Sans", Verdana, sans-serif; /* Fixed font syntax */
+}
+
+.layout {
+    display: grid;
+    min-height: 100vh;
+    gap: 10px;
+    padding: 10px;
+    grid-template-areas: 
+        "header header header"
+        "leftSide body rightSide"
+        "footer footer footer";
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: auto 1fr auto;
+}
+
+.header {
+    grid-area: header;
+    background: #04AA6D;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.leftSide {
+    display: flex;
+    flex-direction: column;
+    grid-area: leftSide;
+    padding: 20px;
+    gap: 15px;
+}
+
+.menuitem {
+    padding: 9px;
+    font-size: large;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    transition: all 0.3s ease; /* Smooth hover transition */
+}
+
+.menuitem:hover {
+    background-color: #04AA6D;
+    color: #ffffff;
+}
+
+.menuitem a {
+    display: block; /* Makes entire div clickable */
+    color: inherit; /* Inherits color from parent */
+    text-decoration: none;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    grid-area: body;
+    background: #ffffff;
+    padding: 20px;
+}
+
+.body a {
+    color: #04AA6D; /* Matches theme */
+    text-decoration: none;
+}
+
+.body a:hover {
+    text-decoration: underline; /* Visual feedback */
+}
+
+.rightSide {
+    grid-area: rightSide;
+    background: #32a4e7;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.footer {
+    grid-area: footer;
+    background: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* Medium screens */
+@media (max-width: 1024px) {
+    .layout {
+        grid-template-areas: 
+            "header header header"
+            "leftSide body body"
+            "rightSide rightSide rightSide"
+            "footer footer footer";
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+/* Small screens */
+@media (max-width: 768px) {
+    .layout {
+        grid-template-areas: 
+            "header"
+            "leftSide"
+            "body"
+            "rightSide"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+}

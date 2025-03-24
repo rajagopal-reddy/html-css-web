@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lucida Sans", Verdana, sans-serif;
+}
+
+.layout {
+    display: grid;
+    min-height: 100vh;
+    column-gap: 10px; /* Only horizontal gap between columns */
+    padding: 10px;
+    grid-template-areas: 
+        "header header"
+        "body rightSide"
+        "belowContent belowContent"
+        "footer footer";
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: auto 1fr auto auto;
+    background-color: #d14836;
+}
+
+.header {
+    grid-area: header;
+    background: #d14836;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.body {
+    grid-area: body;
+    background: #ffffff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.main {
+    margin: 0;
+}
+
+.rightSide {
+    grid-area: rightSide;
+    background: #ffffff;
+    padding: 20px;
+}
+
+.belowContent {
+    grid-area: belowContent;
+    background: #F6DAD7;
+    color: #d14836;
+    padding: 20px;
+}
+
+.footer {
+    grid-area: footer;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.menuitem {
+    padding: 9px;
+    background-color: #d14836;
+    color: #ffffff;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+    border: 2px solid #d14836;
+}
+
+.menuitem:hover {
+    background-color: #ffffff;
+}
+
+.rightSide a {
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+}
+
+.rightSide a:hover {
+    color: #d14836;
+}
+
+.body h1, .body h2 {
+    color: #d14836;
+}
+
+.body a {
+    color: #d14836;
+    text-decoration: none;
+}
+
+/* Medium */
+@media (max-width: 1024px) {
+    .layout {
+        grid-template-areas: 
+            "header header"
+            "body body"
+            "rightSide rightSide"
+            "belowContent belowContent"
+            "footer footer";
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Small */
+@media (max-width: 768px) {
+    .layout {
+        grid-template-areas: 
+            "header"
+            "body"
+            "rightSide"
+            "belowContent"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+}
